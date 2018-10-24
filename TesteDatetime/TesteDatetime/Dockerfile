@@ -2,8 +2,8 @@ FROM microsoft/aspnetcore:2.0 AS base
 WORKDIR /app
 EXPOSE 80
 
-#RUN export TZ="/usr/share/zoneinfo/America/Sao_Paulo"
-RUN export TZ="/usr/share/zoneinfo/America/Los_Angeles"
+ENV TZ=America/Los_Angeles
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 FROM microsoft/aspnetcore-build:2.0 AS build
 WORKDIR /src

@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  testedatetime:
+    image: testedatetime
+    build:
+      context: .
+      dockerfile: TesteDatetime/Dockerfile
